@@ -1,1 +1,31 @@
+/* simple readable styles for the lab pages */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 18px;
+  background: #f7f7f9;
+  color: #222;
+}
+header h1 { margin: 0 0 6px 0; }
+.muted { color: #666; font-size: 0.95em; }
+.card {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  max-width: 700px;
+}
+form label { display: block; margin: 8px 0; }
+input[type="text"], input[type="password"] {
+  padding: 8px; width: 100%; box-sizing: border-box;
+  border: 1px solid #ddd; border-radius: 4px;
+}
+button {
+  margin-top: 8px;
+  padding: 8px 14px;
+  background: #0b6cff; color: white; border: none; border-radius: 6px;
+}
+.result { margin-top:10px; font-weight: 600; }
+nav a { color: #0b6cff; text-decoration: none; margin-right: 8px; }
+details { margin-top:12px; }
+footer { margin-top: 12px; color: #888; font-size: 0.9em; }
 
