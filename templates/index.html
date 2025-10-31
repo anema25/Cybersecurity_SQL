@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SQLi Lab — Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>SQL Injection Lab (SQLite + Flask)</h1>
+    <p class="muted">Local learning environment — vulnerable vs secure implementations</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Apps</h2>
+      <ul>
+        <li><a href="{{ url_for('login_vulnerable') }}">Vulnerable App — Login</a></li>
+        <li><a href="{{ url_for('search_vulnerable') }}">Vulnerable App — Search</a></li>
+        <li><a href="{{ url_for('login_secure') }}">Secure App — Login</a></li>
+        <li><a href="{{ url_for('search_secure') }}">Secure App — Search</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Quick notes</h2>
+      <ol>
+        <li>Run `python database.py` (init_db) once to create `app.db`.</li>
+        <li>Start the server: <code>python app.py</code></li>
+        <li>Open these links on <code>http://127.0.0.1:5000</code>.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <small>For education only — run locally</small>
+  </footer>
+</body>
+</html>
 
