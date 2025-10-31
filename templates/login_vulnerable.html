@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vulnerable Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>⚠️ Vulnerable — Login</h1>
+    <nav><a href="{{ url_for('index') }}">Home</a> • <a href="{{ url_for('login_secure') }}">Secure Login</a></nav>
+  </header>
+
+  <main class="card">
+    <p class="muted">This page intentionally builds SQL using string concatenation. Use only in local labs.</p>
+
+    <form method="post" autocomplete="off" novalidate>
+      <label>Username
+        <input name="username" type="text" placeholder="username">
+      </label>
+      <label>Password
+        <input name="password" type="password" placeholder="password">
+      </label>
+      <div>
+        <button type="submit">Login</button>
+      </div>
+    </form>
+
+    {% if msg %}
+      <p class="result">{{ msg }}</p>
+    {% endif %}
+
+    <details>
+      <summary>Helpful hint (lab only)</summary>
+      <p>Try classic payloads on this page to observe behavior. Do not use these on other systems.</p>
+    </details>
+  </main>
+
+  <footer>
+    <small>Vulnerable demo — local lab only</small>
+  </footer>
+</body>
+</html>
 
