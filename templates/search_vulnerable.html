@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vulnerable Search</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>⚠️ Vulnerable — Search Users</h1>
+    <nav><a href="{{ url_for('index') }}">Home</a> • <a href="{{ url_for('search_secure') }}">Secure Search</a></nav>
+  </header>
+
+  <main class="card">
+    <p class="muted">Search performs a LIKE query using direct string interpolation.</p>
+
+    <form method="get">
+      <label>Search:
+        <input name="q" type="text" placeholder="search term" value="{{ term|default('') }}">
+      </label>
+      <button type="submit">Search</button>
+    </form>
+
+    <section>
+      <h3>Results</h3>
+      {% if results %}
+        <ul>
+          {% for row in results %}
+            <li>{{ row[0] }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="muted">No results</p>
+      {% endif %}
+    </section>
+
+    <details>
+      <summary>Why this is vulnerable</summary>
+      <p>User input is interpolated directly into SQL, allowing payloads like <code>' OR 1=1 --</code> or <code>UNION</code>.</p>
+    </details>
+  </main>
+
+  <footer>
+    <small>Vulnerable demo — local lab only</small>
+  </footer>
+</body>
+</html>
 
